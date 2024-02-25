@@ -52,8 +52,12 @@ public class AuthService {
     }
 
     public  AuthenticationResponse login(User request){
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
+
+
+        System.out.printf("Loginnnnnnnn "+request.getUsername(),request.getPassword());
+
+
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
         );
 
         User user=repo.findByUsername(request.getUsername()).orElseThrow();
